@@ -1,0 +1,25 @@
+{
+  "name": "kawibot",
+  "version": "1.0.0",
+  "description": "discord bot js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Amiiircmoi/KawiBot.git"
+  },
+  "author": "Amiiir",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Amiiircmoi/KawiBot/issues"
+  },
+  "homepage": "https://github.com/Amiiircmoi/KawiBot#readme",
+  "dependencies": {
+    "discord.js": "^13.5.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.6.0"
+  }
+}
