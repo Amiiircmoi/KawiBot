@@ -21,8 +21,8 @@
     "@discordjs/rest": "^0.2.0-canary.0",
     "discord-api-types": "^0.26.1",
     "discord.js": "^13.5.1",
-    "reddit": "^1.2.1",
-    "twitter-api-v2": "^1.9.1"
+    "image-scraper": "^0.2.1",
+    "reddit.images": "^1.0.7"
   },
   "devDependencies": {
     "eslint": "^8.6.0"
