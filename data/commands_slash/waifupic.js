@@ -16,7 +16,7 @@ module.exports = {
 
     async execute(interaction) {
 
-        const waifu = interaction.options.getString('waifu');
+        const waifu = interaction.options.getString('waifu').toLowerCase();
 
         let selectedthread = null
         for (const thread in Threads) {
