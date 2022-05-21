@@ -1,8 +1,9 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const { MessageEmbed, Message } = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('info')
+        .setName('infos')
         .setDescription('Retrouves des informations')
         .addSubcommand(subcommand =>
             subcommand
@@ -18,6 +19,27 @@ module.exports = {
                 .setName('server')
                 .setDescription('Informations sur le serveur')),
     async execute(interaction) {
-            await interaction.reply('Pas encore disponible !');
-        },
+        switch (interaction.options.getSubcommand()) {
+            case 'server':
+                let guild = interaction.guild;
+                let embed = new MessageEmbed()
+                    .setAuthor({ name: guild.name, iconURL: guild.iconURL() })
+                    .setDescription('Membres : ' + guild.memberCount)
+                    .setFooter({ text: guild.createdAt.toString() });
+                await interaction.reply({ embeds: [embed] });
+                break;
+            case 'user':
+                let member = interaction.options.getMentionable('membre');
+                if (member) {
+                    let embed = new MessageEmbed()
+                        .setAuthor({ name: member.user.tag, iconURL: member.user.avatarURL() })
+                        .setTimestamp(member.user.createdAt);
+                    await interaction.reply({ embeds: [embed] });
+                }
+                break;
+            default:
+                await interaction.reply('Cette sous commande n\'existe pas...')
+                break;
+        };
+    },
 };
