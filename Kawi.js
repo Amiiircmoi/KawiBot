@@ -15,7 +15,10 @@ for (const file of commandFiles) {
 
 client.once('ready', () => {
     console.log('Ready!');
-    commands_slash.reloadCommands()
+    commands_slash.reloadCommands();
+
+    // Défini l'activité de Kawi
+    client.user.setActivity('/help | by Amiiir#9999', { type: 'LISTENING' });
 });
 
 client.on('interactionCreate', async interaction => {
