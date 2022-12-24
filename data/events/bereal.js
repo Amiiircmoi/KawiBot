@@ -49,7 +49,7 @@ async function beReal(client) {
                                 });
 
                                 const filter = m => m.author.id === user.id && m.attachments.size > 0;
-                                const collector = dm.createMessageCollector({ filter, time: 10_000, max: 1 });
+                                const collector = dm.createMessageCollector({ filter, time: 300_000, max: 1 });
                                 collector.on('collect', m => {
                                     let embed = new MessageEmbed()
                                         .setTitle(`BeReal de ${user.username}`)
