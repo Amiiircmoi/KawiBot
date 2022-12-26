@@ -25,7 +25,7 @@ async function beReal(client) {
             beRealChannel.send({
                 embeds: [new MessageEmbed()
                     .setTitle(`Hop Hop Hop ! C'est l'heure de BeReal !`)
-                    .setDescription(`Faites nous rêver ${beRealChannel.guild.roles.cache.get('690685924664672316')} !`)
+                    .setDescription(`Faites nous rêver ${beRealChannel.guild.roles.cache.get(beRealRoleId)} !`)
                     .setColor('#FFFFFF')
                     .setTimestamp(new Date().toISOString())
                     .setImage(`https://bere.al/images/logos/bereal-twitter.png`)
@@ -42,14 +42,14 @@ async function beReal(client) {
                                 dm.send({
                                     embeds: [new MessageEmbed()
                                         .setTitle(`Hop Hop Hop ! C'est l'heure de BeReal !`)
-                                        .setDescription(`Fais nous rêver même si t'es aux chiottes ! Tu as 5 minutes !`)
+                                        .setDescription(`Fais nous rêver même si t'es aux chiottes ! Tu as 10 minutes !`)
                                         .setColor('#FFFFFF')
                                         .setImage(`https://bere.al/images/logos/bereal-twitter.png`)
                                     ],
                                 });
 
                                 const filter = m => m.author.id === user.id && m.attachments.size > 0;
-                                const collector = dm.createMessageCollector({ filter, time: 300_000, max: 1 });
+                                const collector = dm.createMessageCollector({ filter, time: 600_000, max: 1 });
                                 collector.on('collect', m => {
                                     let embed = new MessageEmbed()
                                         .setTitle(`BeReal de ${user.username}`)
